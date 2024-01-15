@@ -20,14 +20,28 @@ public class Cart {
         return this.userId;
     }
 
-    public List<CartProduct> getCartItems() {
+    public List<CartProduct> geCartProducts() {
         return this.products;
+    }
+
+    public void setId(String id) {
+        this._id = id;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setProducts(List<CartProduct> products) {
+        this.products = products;
     }
 }
 
 class CartProduct {
     private String productId;
     private int quantity;
+    private String name;
+    private int price;
 
     public String getProductId() {
         return this.productId;
@@ -35,5 +49,29 @@ class CartProduct {
 
     public int getQuantity() {
         return this.quantity;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

@@ -30,7 +30,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/auth/register").permitAll()
                         .requestMatchers("/api/auth/login").permitAll()
                         .requestMatchers("/api/auth/user/findUserByUsername/*").permitAll()
-                        .requestMatchers("/user/getUserShippingByUsername/*").permitAll()
+                        .requestMatchers("/api/auth/user/getUserShippingByUsername/*").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }

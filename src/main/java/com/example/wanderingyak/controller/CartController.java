@@ -19,7 +19,9 @@ public class CartController {
 
     @PostMapping
     public ResponseEntity<Cart> createOrUpdateCart(@RequestBody Cart cart) {
+        System.out.println(cart);
         Cart savedCart = cartService.saveCart(cart);
+
         return ResponseEntity.ok(savedCart);
     }
 }
