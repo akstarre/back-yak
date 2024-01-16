@@ -20,7 +20,7 @@ public class Cart {
         return this.userId;
     }
 
-    public List<CartProduct> geCartProducts() {
+    public List<CartProduct> getCartProducts() {
         return this.products;
     }
 

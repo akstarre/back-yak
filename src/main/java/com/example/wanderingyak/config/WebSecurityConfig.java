@@ -29,6 +29,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/products/category/*").permitAll()
                         .requestMatchers("/api/auth/register").permitAll()
                         .requestMatchers("/api/auth/login").permitAll()
+                        .requestMatchers("/api/cart/*").permitAll()
                         .requestMatchers("/api/auth/user/findUserByUsername/*").permitAll()
                         .requestMatchers("/api/auth/user/getUserShippingByUsername/*").permitAll()
                         .anyRequest().authenticated());
