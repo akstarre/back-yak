@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  WanderingYakFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: com.example.wanderingyak.config.StreamLambdaHandle::handleRequest
+      Runtime: java21
+      Architectures: 
+        - arm64
+      MemorySize: 512
+      Events:
+        createOrUpdateCart:
+          Type: HttpApi
+          Properties:
+            Path: /api/cart
+            Method: POST
+        findByUserId:
+          Type: HttpApi
+          Properties:
+            Path: /api/cart/{userId} 
+            Method: GET
+        getAllProducts:
+          Type: HttpApi
+          Properties:
+            Path: /api/products
+            Method: GET
+        getProductsByCategory:
+          Type: HttpApi
+          Properties:
+            Path: /api/products/category/{category}
+            Method: GET
+        getProductById:
+          Type: HttpApi
+          Properties:
+            Path: /api/products/id/{id}
+            Method: GET
+        registerUser:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/register
+            Method: POST
+        loginUser:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/login
+            Method: POST
+        findUserId:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/user/findUserByUsername/{username}
+            Method: GET
+        findUserInfo:
+          Type: HttpApi
+          Properties:
+            Path: /api/auth/user/getUserShippingByUsername/{username}
+            Method: GET
+  SampleTable:
+    Type: AWS::Serverless::SimpleTable
